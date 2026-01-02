@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MyHeart Feature Graphic</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #1a1a2e;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        .feature-graphic {
+            width: 1024px;
+            height: 500px;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Animated background circles */
+        .bg-circle {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1;
+        }
+        
+        .bg-circle-1 {
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, #e94560 0%, transparent 70%);
+            top: -200px;
+            right: -100px;
+        }
+        
+        .bg-circle-2 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, #e94560 0%, transparent 70%);
+            bottom: -150px;
+            left: -100px;
+        }
+        
+        .bg-circle-3 {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, #ff6b6b 0%, transparent 70%);
+            top: 50%;
+            left: 30%;
+            transform: translateY(-50%);
+        }
+        
+        .content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            z-index: 1;
+        }
+        
+        .heart-container {
+            position: relative;
+        }
+        
+        .heart {
+            font-size: 180px;
+            filter: drop-shadow(0 0 30px rgba(233, 69, 96, 0.5));
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+        }
+        
+        .pulse-ring {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 220px;
+            height: 220px;
+            border: 3px solid rgba(233, 69, 96, 0.3);
+            border-radius: 50%;
+            animation: ring-pulse 1.5s ease-out infinite;
+        }
+        
+        .pulse-ring-2 {
+            animation-delay: 0.5s;
+        }
+        
+        @keyframes ring-pulse {
+            0% { transform: translate(-50%, -50%) scale(0.8); opacity: 1; }
+            100% { transform: translate(-50%, -50%) scale(1.5); opacity: 0; }
+        }
+        
+        .text-content {
+            text-align: left;
+        }
+        
+        .app-name {
+            font-size: 72px;
+            font-weight: 700;
+            color: white;
+            letter-spacing: -2px;
+            margin-bottom: 10px;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+        
+        .tagline {
+            font-size: 24px;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+        
+        .bpm-display {
+            display: inline-flex;
+            align-items: baseline;
+            gap: 8px;
+            margin-top: 30px;
+            background: rgba(233, 69, 96, 0.2);
+            padding: 12px 24px;
+            border-radius: 50px;
+            border: 1px solid rgba(233, 69, 96, 0.3);
+        }
+        
+        .bpm-number {
+            font-size: 48px;
+            font-weight: 700;
+            color: #ff6b6b;
+        }
+        
+        .bpm-label {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.7);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        /* EKG line */
+        .ekg-line {
+            position: absolute;
+            bottom: 80px;
+            left: 0;
+            right: 0;
+            height: 60px;
+            opacity: 0.15;
+        }
+        
+        .ekg-line svg {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .ekg-path {
+            fill: none;
+            stroke: #e94560;
+            stroke-width: 3;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+    </style>
+</head>
+<body>
+    <div class="feature-graphic">
+        <!-- Background elements -->
+        <div class="bg-circle bg-circle-1"></div>
+        <div class="bg-circle bg-circle-2"></div>
+        <div class="bg-circle bg-circle-3"></div>
+        
+        <!-- EKG line at bottom -->
+        <div class="ekg-line">
+            <svg viewBox="0 0 1024 60" preserveAspectRatio="none">
+                <path class="ekg-path" d="M0,30 L100,30 L120,30 L140,30 L160,30 L180,30 L200,30 L220,10 L240,50 L260,30 L280,30 L300,30 L320,30 L340,30 L360,30 L380,30 L400,30 L420,30 L440,30 L460,30 L480,10 L500,50 L520,30 L540,30 L560,30 L580,30 L600,30 L620,30 L640,30 L660,30 L680,30 L700,30 L720,10 L740,50 L760,30 L780,30 L800,30 L820,30 L840,30 L860,30 L880,30 L900,30 L920,30 L940,30 L960,10 L980,50 L1000,30 L1024,30" />
+            </svg>
+        </div>
+        
+        <!-- Main content -->
+        <div class="content">
+            <div class="heart-container">
+                <div class="pulse-ring"></div>
+                <div class="pulse-ring pulse-ring-2"></div>
+                <div class="heart">❤️</div>
+            </div>
+            
+            <div class="text-content">
+                <div class="app-name">MyHeart</div>
+                <div class="tagline">See your heartbeat come alive</div>
+                <div class="bpm-display">
+                    <span class="bpm-number">72</span>
+                    <span class="bpm-label">BPM</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
